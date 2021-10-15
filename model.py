@@ -46,12 +46,3 @@ class SymbolTable:
     def insert(self, value):
         return self.symbolTable.insert(value)
 
-
-listTest = AlphabeticallySortedList()
-listTest.insert(1)
-listTest.insert(10)
-listTest.insert(3)
-listTest.insert(9)
-print(listTest)
-listTest.insert(0)
-print(listTest)
