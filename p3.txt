@@ -1,0 +1,13 @@
+int arraySize = input("Enter nr of nrs");
+array = [];
+int largest = 0;
+for i in range(arraySize) {
+int a = int(input())
+array.append(a);
+}
+for i in array {
+if (i > largest){
+largest = i;
+}
+}
+print(largest);

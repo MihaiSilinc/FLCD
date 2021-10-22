@@ -1,0 +1,15 @@
+int a = input("Enter first nr");
+int b = input("Enter second nr");
+int c = input("Enter third nr");
+int largest;
+if (a >= b and a >= c){
+largest = a;
+}
+else if (b >= a and b >= c) {
+largest = b;
+}
+else {
+largest = c
+}
+string message = "Largest number: ";
+print(message, largest);

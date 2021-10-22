@@ -33,16 +33,3 @@ class AlphabeticallySortedList:
         # if it is not any of these cases, return last pos
         self.sortedList.append(value)
         return list_length - 1
-
-
-class SymbolTable:
-
-    def __init__(self):
-        self.symbolTable = AlphabeticallySortedList()
-
-    def search(self, value):
-        return self.symbolTable.search(value)
-
-    def insert(self, value):
-        return self.symbolTable.insert(value)
-
