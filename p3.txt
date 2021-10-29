@@ -1,4 +1,4 @@
-int arraySize = input("Enter nr of nrs");
+int arraySize = input('Enter nr of nrs');
 array = [];
 int largest = 0;
 for i in range(arraySize) {

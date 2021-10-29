@@ -4,8 +4,11 @@ class AlphabeticallySortedList:
     def __init__(self):
         self.sortedList = []
         
-    def __str__(self):
-        return str(self.sortedList)
+    def __str__(self) -> str:
+        result = "Symbol Table: \n"
+        for i in range(len(self.sortedList)):
+            result = result + str(i) + " -> " + str(self.sortedList[i]) + "\n"
+        return result
 
     def search(self, value):
 
@@ -24,7 +27,7 @@ class AlphabeticallySortedList:
         for index in range(list_length):
 
             if value == self.sortedList[index]:
-                return value
+                return index
 
             if value < self.sortedList[index]:
                 self.sortedList.insert(index, value)

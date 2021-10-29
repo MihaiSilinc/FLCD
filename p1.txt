@@ -1,6 +1,6 @@
-int a = input("Enter first nr");
-int b = input("Enter second nr");
-int c = input("Enter third nr");
+int a = input('Enter first nr');
+int b = input('Enter second nr');
+int c = input('Enter third nr');
 int largest;
 if (a >= b and a >= c){
 largest = a;
@@ -11,5 +11,5 @@ largest = b;
 else {
 largest = c
 }
-string message = "Largest number: ";
+string message = 'Largest number: ';
 print(message, largest);

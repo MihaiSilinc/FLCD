@@ -1,28 +1,12 @@
 import re
 
 
-keywords = []
-separators = []
-operators = []
-
-
 class Scanner:
 
-    def __init__(self) -> None:
-        self.cases = []
-
-    @staticmethod
-    def readFile():
-        with open('Token.in', 'r') as file:
-            for i in range(8):
-                separator = file.readline().strip()
-                if separator == "space":
-                    separator = " "
-                separators.append(separator)
-            for i in range(12):
-                operators.append(file.readline().strip())
-            for i in range(9):
-                keywords.append(file.readline().strip())
+    def __init__(self):
+        self.keywords = []
+        self.separators = []
+        self.operators = []
 
     @staticmethod
     def getStringToken(line, index):
@@ -35,9 +19,8 @@ class Scanner:
             index += 1
         return token, index
 
-    @staticmethod
-    def isPartOfOperator(key):
-        for operator in operators:
+    def isPartOfOperator(self, key):
+        for operator in self.operators:
             if key in operator:
                 return True
         return False
@@ -60,24 +43,32 @@ class Scanner:
     def tokenize(self, line):
         token = ''
         index = 0
-        tokenList = []
+        tokens = []
         while index < len(line):
             if self.isPartOfOperator(line[index]):
                 if token:
-                    tokenList.append(token)
+                    tokens.append(token)
                 token, index = self.getOperatorToken(line, index)
-                tokenList.append(token)
-                token = ''
+                tokens.append(token)
+                token = ''  # reset token
 
-            # elif line[index] == '\'':
-            #     if token:
-            #         tokenList.append(token)
+            elif line[index] == '\'':
+                if token:
+                    tokens.append(token)
+                token, index = self.getStringToken(line, index)
+                tokens.append(token)
+                token = ''  # reset token
 
-            elif line[index] in separators:
-                return
+            elif line[index] in self.separators:
+                if token:
+                    tokens.append(token)
+                token, index = line[index], index + 1
+                tokens.append(token)
+                token = ''  # reset token
+
             else:
                 token += line[index]
                 index += 1
         if token:
-            tokenList.append(token)
-        return tokenList
+            tokens.append(token)
+        return tokens
