@@ -9,7 +9,7 @@ class Scanner:
         self.operators = []
 
     @staticmethod
-    def getStringToken(line, index):
+    def stringToken(line, index):
         token = ''
         quotes = 0
         while index < len(line) and quotes < 2:
@@ -34,7 +34,7 @@ class Scanner:
 
     @staticmethod
     def checkIdentifier(token):
-        return re.match(r'^[a-z]([a-zA-Z]|[0-9])*$', token) is not None
+        return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9])*$', token) is not None
 
     @staticmethod
     def isConstant(token):
@@ -55,7 +55,7 @@ class Scanner:
             elif line[index] == '\'':
                 if token:
                     tokens.append(token)
-                token, index = self.getStringToken(line, index)
+                token, index = self.stringToken(line, index)
                 tokens.append(token)
                 token = ''  # reset token
 

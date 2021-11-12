@@ -1,7 +1,7 @@
 int a = input('Enter number);
 int b = input();
 int c = input();
-int largest = $10;
+int largest = 10$;
 if ( a >= b and a >= c ) {
 largest = a;
 }

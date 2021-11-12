@@ -1,3 +1,4 @@
+int a = -3+7
 int arraySize = input('Enter nr of nrs');
 array = [];
 int largest = 0;

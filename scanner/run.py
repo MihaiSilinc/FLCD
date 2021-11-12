@@ -25,7 +25,7 @@ class Main:
     def run(self, error=None):
         self.readFile()
         print(self.scanner.separators, self.scanner.operators, self.scanner.keywords)
-        fileName = "p1err.txt"
+        fileName = "p3.txt"
         tokensList = self.scanner.keywords + self.scanner.separators + self.scanner.operators
         error = ''
         with open(fileName, 'r') as file:
@@ -38,7 +38,7 @@ class Main:
                     if tokens[i] in tokensList:
                         if tokens[i] == ' ':
                             continue
-                        self.pif.add(tokens[i], "Operator / Sep / Reserved")
+                        self.pif.add(tokens[i], -1)
                     elif self.scanner.checkIdentifier(tokens[i]):
                         identifier = self.symbolTable.insert(tokens[i])
                         self.pif.add("Identifier", identifier)

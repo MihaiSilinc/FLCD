@@ -1,0 +1,13 @@
+Symbol Table: 
+0 -> 'Enter nr of nrs'
+1 -> 0
+2 -> 3
+3 -> 7
+4 -> a
+5 -> append
+6 -> array
+7 -> arraySize
+8 -> i
+9 -> in
+10 -> largest
+11 -> range
